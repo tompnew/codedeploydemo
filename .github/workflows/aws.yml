@@ -14,7 +14,7 @@ jobs:
     - id: GetBuildVersion
       run: |
         $version="1.0.0"
-        echo "release_version=${version}" >> "$GITHUB_ENV"
+        echo "release_version=${version}" | Out-File -FilePath $env:GITHUB_ENV -Append
     - name: Dump github context
       run:   
         echo "$GITHUB_CONTEXT"
