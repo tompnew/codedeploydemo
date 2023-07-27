@@ -13,11 +13,11 @@ jobs:
     steps:
     - id: GetBuildVersion
       run: |
-        STR="Hello World!"
-        VERSION="1.0.0"
-        echo "release_version=$VERSION" >> "$GITHUB_ENV"
+        $version="1.0.0"
+        echo "release_version=${version}" >> "$GITHUB_ENV"
     - name: Dump github context
-      run:   echo "$GITHUB_CONTEXT"
+      run:   
+        echo "$GITHUB_CONTEXT"
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
     - name: Output
