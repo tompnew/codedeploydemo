@@ -14,7 +14,6 @@ jobs:
     - id: GetBuildVersion
       run: |
         $version = "1.0.0"
-        echo "::set-env name=version::${version}"
       shell: pwsh
     - name: Dump github context
       run:   echo "$GITHUB_CONTEXT"
