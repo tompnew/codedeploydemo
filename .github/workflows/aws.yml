@@ -3,7 +3,6 @@ name: AWS Code Deploy Release
 on:
   workflow_dispatch
 env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
   REPO_NAME: ${{ github.event.repository.name }}
 
 jobs:
@@ -24,5 +23,12 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
     - name: Output
       run:  |
-        echo "REPO_NAME=${{ github.event.repository.name }}"
         echo "REPO_VAR=${{ env.REPO_NAME }}"
+    - name: Set the value
+      id: step_one
+      run: |
+        echo "action_state=yellow" >> "$GITHUB_ENV"
+    - name: Use the value
+      id: step_two
+      run: |
+       echo "${{ env.action_state }}" # This will output 'yellow'
