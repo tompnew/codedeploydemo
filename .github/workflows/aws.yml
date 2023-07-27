@@ -16,7 +16,6 @@ jobs:
         $version = "1.0.0"
         echo "release_version=100" >> "$GITHUB_ENV"
         echo "${{ env.release_version }}" 
-      shell: pwsh
     - name: Dump github context
       run:   echo "$GITHUB_CONTEXT"
       shell: bash
