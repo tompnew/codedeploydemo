@@ -13,7 +13,9 @@ jobs:
     steps:
     - id: GetBuildVersion
       run: |
-        echo "release_version=100" >> "$GITHUB_ENV"
+        STR="Hello World!"
+        VERSION="1.0.0"
+        echo "release_version=$VERSION" >> "$GITHUB_ENV"
     - name: Dump github context
       run:   echo "$GITHUB_CONTEXT"
       env:
