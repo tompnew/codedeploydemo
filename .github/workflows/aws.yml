@@ -14,7 +14,7 @@ jobs:
     - id: GetBuildVersion
       run: |
         $version = "1.0.0"
-        echo "version=${version}" >> "$GITHUB_ENV"
+        echo "version=1.0.0" >> "$GITHUB_ENV"
         echo "${{ env.version }}" 
       shell: pwsh
     - name: Dump github context
