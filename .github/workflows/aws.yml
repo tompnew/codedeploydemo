@@ -14,6 +14,8 @@ jobs:
     - id: GetBuildVersion
       run: |
         $version = "1.0.0"
+        echo "version=${version}" >> "$GITHUB_ENV"
+        echo "${{ env.version }}" 
       shell: pwsh
     - name: Dump github context
       run:   echo "$GITHUB_CONTEXT"
@@ -23,11 +25,3 @@ jobs:
     - name: Output
       run:  |
         echo "REPO_VAR=${{ env.REPO_NAME }}"
-    - name: Set the value
-      id: step_one
-      run: |
-        echo "action_state=yellow" >> "$GITHUB_ENV"
-    - name: Use the value
-      id: step_two
-      run: |
-       echo "${{ env.action_state }}" # This will output 'yellow'
