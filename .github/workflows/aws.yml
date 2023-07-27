@@ -14,8 +14,8 @@ jobs:
     - id: GetBuildVersion
       run: |
         $version = "1.0.0"
-        echo "version=1.0.0" >> "$GITHUB_ENV"
-        echo "${{ env.version }}" 
+        echo "release_version=100" >> "$GITHUB_ENV"
+        echo "${{ env.release_version }}" 
       shell: pwsh
     - name: Dump github context
       run:   echo "$GITHUB_CONTEXT"
@@ -25,3 +25,4 @@ jobs:
     - name: Output
       run:  |
         echo "REPO_VAR=${{ env.REPO_NAME }}"
+        echo "${{ env.release_version }}" 
