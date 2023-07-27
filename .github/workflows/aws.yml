@@ -14,10 +14,8 @@ jobs:
     - id: GetBuildVersion
       run: |
         echo "release_version=100" >> "$GITHUB_ENV"
-        echo "${{ env.release_version }}" 
     - name: Dump github context
       run:   echo "$GITHUB_CONTEXT"
-      shell: bash
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
     - name: Output
