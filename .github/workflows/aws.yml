@@ -4,6 +4,7 @@ on:
   workflow_dispatch
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  REPO_NAME: ${{ github.event.repository.name }}
 
 jobs:
   prepare-release:
@@ -24,3 +25,4 @@ jobs:
     - name: Output
       run:  |
         echo "REPO_NAME=${{ github.event.repository.name }}"
+        echo "REPO_VAR=${{ var.REPO_NAME }}"
