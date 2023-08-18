@@ -24,3 +24,18 @@ jobs:
       run:  |
         echo "REPO_VAR=${{ env.REPO_NAME }}"
         echo "${{ env.release_version }}" 
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::080007128336:role/voice/gh-deploy/dev/appGHDeployRoleDEV
+        aws-region: eu-west-1
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      env:
+        GITHUB_ACTOR: "Marlon"
+      with:
+        role-to-assume: arn:aws:iam::080007128336:role/voice/gh-deploy/dev/appGHDeployChainedRoleDEV
+        role-session-name: AssumedRole
+        aws-region: eu-west-1
+        role-chaining: true
+        
