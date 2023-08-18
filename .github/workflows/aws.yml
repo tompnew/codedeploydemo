@@ -11,19 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - id: GetBuildVersion
-      run: |
-        $version="1.0.0"
-        echo "release_version=${version}" | Out-File -FilePath $env:GITHUB_ENV -Append
-    - name: Dump github context
-      run:   
-        echo "$GITHUB_CONTEXT"
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-    - name: Output
-      run:  |
-        echo "REPO_VAR=${{ env.REPO_NAME }}"
-        echo "${{ env.release_version }}" 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
